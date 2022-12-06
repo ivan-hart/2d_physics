@@ -7,7 +7,7 @@ let delta
 
 let balls = []
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 10000; i++) {
     let temp = new Ball(i)
     balls.push(temp)
 }
@@ -18,7 +18,7 @@ function main() {
     delta = (t - Date.now()) / 1000
     t = Date.now()
 
-    for (let i = 0; i < balls.length; i++) {
+    /* for (let i = 0; i < balls.length; i++) {
         let a = balls[i]
         for (let j = 0; j < balls.length; j++) {
             let b = balls[j]
@@ -33,10 +33,11 @@ function main() {
                 balls[j].vel.y -= (2*ma/(ma+mb)) * (bdp/(d**2)) * (b.pos.y - a.pos.y)
             }
         }
-    }
+    } */
 
     for (let i = 0; i < balls.length; i++) {
-        balls[i].update(delta, balls)
+        balls[i].update(delta, balls)/* 
+        balls[i].checkCollision(balls, i) */
         balls[i].drawCircle(ctx)
     }
 
